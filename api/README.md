@@ -7,7 +7,5 @@
 - [+] `$ python -m pip install -r requirments.txt`
 - [+] `$ python manage.py migrate`
 - [+] `$ python manage.py createuser`
+- [+] `$ python manage.py test`
 - [+] `$ python manage.py runserver`
-
-
-
