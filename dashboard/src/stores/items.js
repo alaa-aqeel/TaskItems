@@ -9,5 +9,5 @@ export const useItemsStore = defineStore('items', () => {
 
 
 
-  return { count, doubleCount, increment }
+  return { }
 })
