@@ -17,17 +17,16 @@
         - [X] test_login_with_invalid_payload
 
 
-- [ ] Items 
-    - [ ] Create model `items` {name, expired_at, image, created_at }
-    - [ ] Create `model view set` {create, update, delete, read [ pagination ] }
-    - [ ] filter `items` by { name, expired_at }
-    - [ ] Testing 
-        - [ ] test_create_new_items
-        - [ ] test_get_items
-        - [ ] test_paginate
-        - [ ] test_update_item
-        - [ ] test_delete_item
-        - [ ] test_get_item
+- [X] Items 
+    - [X] Create model `items` {name, expired_at, image, created_at }
+    - [X] Create `model view set` {create, update, delete, read [ pagination ] }
+    - [X] filter `items` by { name, expired_at }
+    - [X] Testing 
+        - [X] test_create_new_items
+        - [X] test_get_items
+        - [X] test_paginate
+        - [X] test_update_item
+        - [X] test_delete_item
 
 
 ## Dashboard 

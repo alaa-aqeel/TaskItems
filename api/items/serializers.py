@@ -6,6 +6,7 @@ class ItemSerializer(serializers.ModelSerializer):
     
     image = serializers.ImageField()
     
+    
     class Meta:
         model = Item
         
@@ -24,6 +25,11 @@ class ItemSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
         ]
+        
+        
+    def __init__(self, *args, **kwargs):
+        kwargs['partial'] = True
+        super(ItemSerializer, self).__init__(*args, **kwargs)
         
     # def get_image(self, obj):
     #     request = self.context.get('request')
