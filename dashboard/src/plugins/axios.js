@@ -1,7 +1,4 @@
 import axios from "axios"
-import store from "@/store"
-import router from "@/router";
-// import router from "@/router";
 
 const instance = axios.create({
     baseURL: process.env.VUE_APP_BASE_API_URL+'/api/v1/admin',
