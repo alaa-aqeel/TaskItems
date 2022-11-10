@@ -36,13 +36,14 @@
 
 <script setup>
 import { ref } from 'vue';
-import { useAccsessTokenStore } from '@/stores/auth';
+import { useUserStore } from '@/stores/auth';
+import { useRouter } from 'vue-router';
 
-
-const store = useAccsessTokenStore()
+const store = useUserStore()
 const form = ref(null)
 const isError = ref(false)
 const isLoading = ref(false)
+const router =  useRouter()
 
 const submit = ()=>{
     isLoading.value = true 
@@ -53,6 +54,7 @@ const submit = ()=>{
     store.login(fd)
         .then(()=>{
             
+            router.push({name: "home"})
             
         })
         .catch(()=> isError.value = true)

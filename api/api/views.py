@@ -1,14 +1,18 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import generics
-from api.serializers import ProfileSerializer
+from api.serializers import UserSerializer
+from rest_framework import permissions
 
-
-class ProfileAPI(generics.UpdateAPIView):
+class UserProfileAPI(APIView):
     
+    permission_classes = [
+        permissions.IsAuthenticated, 
+        permissions.IsAdminUser
+    ]
     
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
         
-        profile_serializer = ProfileSerializer(request.user)
-        return Response(profile_serializer.data)
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data)
     

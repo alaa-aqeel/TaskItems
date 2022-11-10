@@ -31,7 +31,7 @@
             </div>
             <div class="flex md:order-2 items-center justify-center gap-1">
                 <h1 class="font-medium">
-                    Name
+                    {{ store.user.username }}
                 </h1>
                 <button 
                     type="button" 
@@ -46,8 +46,8 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
+import { useUserStore } from '@/stores/auth';
 
-
-
+const store = useUserStore()
 
 </script>
