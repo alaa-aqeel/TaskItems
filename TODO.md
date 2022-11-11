@@ -31,17 +31,15 @@
 
 ## Dashboard 
 
-- [ ] Install   
-    - [ ] Vue3 use vite 
-    - [ ] piniaJS
-    - [ ] tailwindcss 
-    - [ ] axios.js
+- [X] Install   
+    - [X] Vue3 use vite 
+    - [X] piniaJS
+    - [X] tailwindcss 
+    - [X] axios.js
 
-- [ ] Login page 
-- [ ] Profile {update, read} + logout
-- [ ] Items page 
-    - [ ] Table view items 
-    - [ ] Form 
-        - [ ] Create
-        - [ ] update  
-    - [ ] filter input { name, expired_at }
+- [X] Login page 
+- [X] Profile read + logout
+- [X] Items page 
+    - [X] Table view items 
+    - [X] Item Form  
+    - [X] filter input { name, expired_at }
