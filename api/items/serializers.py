@@ -4,7 +4,8 @@ from items.models import Item
 
 class ItemSerializer(serializers.ModelSerializer):
     
-    image = serializers.ImageField()
+    image = serializers.ImageField(required=False)
+    expired_at = serializers.DateTimeField(format="%Y-%m-%d")
     
     
     class Meta:
@@ -31,6 +32,3 @@ class ItemSerializer(serializers.ModelSerializer):
         kwargs['partial'] = True
         super(ItemSerializer, self).__init__(*args, **kwargs)
         
-    # def get_image(self, obj):
-    #     request = self.context.get('request')
-    #     return request.build_absolute_uri(obj.photo.url)
