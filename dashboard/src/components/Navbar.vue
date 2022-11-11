@@ -35,6 +35,7 @@
                 </h1>
                 <button 
                     type="button" 
+                    @click="logout"
                     class="text-red-700 hover:text-red-800 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-2 py-2.5 text-center mr-3 md:mr-0 ">
                     Logout
                 </button>
@@ -45,9 +46,15 @@
 
 
 <script setup>
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/auth';
 
 const store = useUserStore()
+const router = useRouter()
+
+const logout = () => {
+    store.logout()
+    router.push({name: "login"})
+}
 
 </script>

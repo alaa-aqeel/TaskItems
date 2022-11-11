@@ -29,6 +29,7 @@ export const useUserStore = defineStore('user', {
         logout(){
             localStorage.removeItem("access_token")
             this.isAuthenticated = false
+            this.user = {}
         },
         setAccessToken(accessToken) {
 

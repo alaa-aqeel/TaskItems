@@ -24,7 +24,7 @@
                     Create
                 </button>
 
-                <div class="w-full flex gap-2">
+                <div class="w-full flex gap-2 border p-2 rounded-xl">
                     <div class="px-4 py-2 flex items-center border rounded-xl">
                         <label for="checked-toggle" class="inline-flex relative items-center cursor-pointer">
                             <input type="checkbox" value="1" @change="fetchData()" v-model="expired" id="checked-toggle" class="sr-only peer" >
