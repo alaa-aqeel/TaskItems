@@ -6,9 +6,10 @@ import axios from "@/plugins/axios.js"
 export const useItemsStore = defineStore('items', {
   state: () => ({
       items: [],
-      canNext: null,
-      canPrev: null,
-      count: null,
+      nextPage: null,
+      prevPage: null,
+      count: 0,
+      totalPage: 0,
       columns: [
         {text: "#", name: "id"},
         {text: "Image", name: "image"},
@@ -18,13 +19,16 @@ export const useItemsStore = defineStore('items', {
       current: {}
   }),
   actions: {
-    async getAll(page = 1, expired = false) {
-      return await axios.get(`items?page=${page}&expired=${expired}`)
+    async getAll(page = 1, expired = '', search = "") {
+      this.item = []
+      return await axios.get(`items?page=${page}&expired=${expired}&search=${search}`)
             .then(resp => {
+              console.log(resp)
               this.items = resp.data.results
-              this.canNext = !!resp.data.next
-              this.canPrev = !!resp.data.Prev
+              this.nextPage = resp.data.next
+              this.prevPage = resp.data.previous
               this.count = resp.data.count
+              this.totalPage = resp.data.total_page
             })
     },
     async create(fd) {
