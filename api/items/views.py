@@ -17,10 +17,16 @@ class ItemViewSet(viewsets.ModelViewSet):
     
     
     def list(self, request):
-        print(timezone.now().date())
+        
         isExpired = request.GET.get("expired", False)
         filterKey =  "expired_at__lt"  if isExpired else "expired_at__gte" 
-        queryset  = self.get_queryset()
+        queryset  = self.get_queryset() \
+                .order_by('-created_at') \
+                .filter(**{ 
+                    filterKey: timezone.now(),
+                    "name__contains": request.GET.get("search", "")
+                }) 
+                    
         
         page_queryset = self.paginate_queryset(queryset)
 

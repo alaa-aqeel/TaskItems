@@ -18,8 +18,8 @@ export const useItemsStore = defineStore('items', {
       current: {}
   }),
   actions: {
-    async getAll() {
-      return await axios.get("items")
+    async getAll(page = 1, expired = false) {
+      return await axios.get(`items?page=${page}&expired=${expired}`)
             .then(resp => {
               this.items = resp.data.results
               this.canNext = !!resp.data.next
@@ -30,14 +30,24 @@ export const useItemsStore = defineStore('items', {
     async create(fd) {
 
       return await axios.post("items/", fd)
+              .then( resp=> {
+                this.items.push(resp.data)
+                return resp 
+              })
     },
     async update(id, fd) {
 
       return await axios.put(`items/${id}/`, fd)
+                .then( resp=> {
+                  this.item = this.items.map(it => it.id == id ? resp.data : it) 
+                })
     },
     async delete(id) {
 
       return await axios.delete(`items/${id}/`)
+                .then( ()=> {
+                    this.items = this.items.filter(it => it.id != id)
+                })
     }
   }
 })
